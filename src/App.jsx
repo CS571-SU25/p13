@@ -6,10 +6,12 @@ import { HashRouter, Routes, Route } from 'react-router'
 
 import AboutUs from './components/AboutUs'
 import OtherInfo from './components/OtherInfo'
+import ROSApp from './components/ROSApp';
 
 function App() {
   return <HashRouter>
     <Routes>
+      <Route path="/" element={<ROSApp/>}></Route>
       <Route path="/about-us" element={<AboutUs/>}></Route>
       <Route path="/other-info" element={<OtherInfo/>}></Route>
     </Routes>
