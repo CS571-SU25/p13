@@ -31,10 +31,10 @@ export class LLMChat {
 
     llmListenerCallback(message) {
         
-        let historyElem = document.getElementById(this.chatHistoryID);
-        const text = document.createElement("pre");
-        text.textContent = `AGENT:\n${message.data}`;
-        historyElem.appendChild(text);
+        // let historyElem = document.getElementById(this.chatHistoryID);
+        // const text = document.createElement("pre");
+        // text.textContent = `AGENT:\n${message.data}`;
+        // historyElem.appendChild(text);
         this.changeButtonVisibility(false);
 
     }
