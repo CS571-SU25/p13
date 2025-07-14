@@ -7,10 +7,10 @@ const ROSApp = () => {
   return (
     <Container fluid className="bg-white min-vh-100 py-4">
       <Row>
-        <Col xs={12} xl={8}>
+        <Col xs={12} xl={7}>
           <Visualizer />
         </Col>
-        <Col xs={12} xl={4}>
+        <Col xs={12} xl={5} className="mt-5 mt-xl-0">
           <LLMChatComponent />
         </Col>
       </Row>

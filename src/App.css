@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+
+.scrollable-chat {
+  scrollbar-width: thin;
+  scrollbar-color: #4B5563 #1F2937; /* thumb color and track color */
+}
+
+.scrollable-chat::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-chat::-webkit-scrollbar-thumb {
+  background-color: #4B5563; /* Tailwind's gray-700 */
+  border-radius: 4px;
+}
+
+.scrollable-chat::-webkit-scrollbar-track {
+  background-color: #1F2937; /* Tailwind's gray-900 */
+}

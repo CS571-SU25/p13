@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { LLMChat } from '../lib/LLMChat';
 import ROSLIB from 'roslib';
+import '../App.css';
 
 const LLMChatComponent = () => {
   const historyRef = useRef(null);
@@ -21,8 +22,15 @@ const LLMChatComponent = () => {
     window.llmChat = chat; // still needed for button callbacks
   }, []);
 
+  useEffect(() => {
+    if (historyRef.current) {
+      historyRef.current.scrollTop = historyRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   const handleClick = () => {
     const value = inputRef.current.value;
+    console.log("User input:", value);
     if (value.trim()) {
       setMessages((prev) => [...prev, { role: 'user', text: value }]);
 
@@ -33,7 +41,19 @@ const LLMChatComponent = () => {
 
   return (
     <div className="p-6 bg-gray-900 text-white rounded-lg shadow-md max-w-md ml-auto">
-      <div className="w-full bg-black text-white h-[200px] p-4 rounded shadow-md overflow-y-auto">
+      <div
+        ref={historyRef}
+        style={{
+          height: '400px',
+          width: '400px',
+          overflowY: 'scroll',
+          backgroundColor: 'black',
+          color: 'white',
+          padding: '1rem',
+          borderRadius: '0.5rem',
+          boxShadow: '0 0 5px rgba(0,0,0,0.3)',
+        }}
+      >
         <h2 className="text-sm mb-2">Chat History</h2>
         {messages.length === 0 ? (
             <p className="text-gray-400">No messages yet...</p>
@@ -60,20 +80,48 @@ const LLMChatComponent = () => {
         Run on robot
       </button> */}
 
-      <div className="flex justify-center mt-4">
-        <div className="flex gap-2 items-center">
-            <textarea
-                id="userInput"
-                ref={inputRef}
-                defaultValue="Pick the apple and place it on the bread."
-                className="h-[60px] w-[300px] p-2 text-sm leading-tight rounded bg-gray-800 border border-gray-600 resize-none"
-            />
-            <button
-                onClick={handleClick}
-                className="h-[60px] px-4 py-2 text-sm font-semibold bg-blue-600 hover:bg-blue-700 rounded"
-            >
+      <div style={{ width: '400px', display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+        <div
+          style={{
+            width: '400px',
+            display: 'flex',
+            // alignItems: 'center',
+            gap: '0.5rem',
+          }}
+        >
+          <textarea
+            id="userInput"
+            ref={inputRef}
+            defaultValue="Pick the apple and place it on the bread."
+            style={{
+              flexGrow: 1,
+              padding: '0.5rem',
+              fontSize: '0.875rem',
+              borderRadius: '0.375rem',
+              resize: 'none',
+              backgroundColor: 'black',
+              color: 'white',
+              height: '85px',
+              border: 'none',
+            }}
+          />
+          <button
+            onClick={handleClick}
+            style={{
+              padding: '0.5rem 1rem',
+              fontSize: '0.875rem',
+              fontWeight: '600',
+              borderRadius: '0.375rem',
+              backgroundColor: 'black',
+              color: 'white',
+              height: '40px',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+            type="button"
+          >
             Enter
-            </button>
+          </button>
         </div>
       </div>
     </div>
