@@ -19,14 +19,8 @@ const LLMChatComponent = () => {
       setMessages((prev) => [...prev, { role: 'agent', text: message.data }]);
     };
 
-    window.llmChat = chat; // still needed for button callbacks
+    window.llmChat = chat;
   }, []);
-
-  useEffect(() => {
-    if (historyRef.current) {
-      historyRef.current.scrollTop = historyRef.current.scrollHeight;
-    }
-  }, [messages]);
 
   const handleClick = () => {
     const value = inputRef.current.value;
@@ -85,7 +79,6 @@ const LLMChatComponent = () => {
           style={{
             width: '400px',
             display: 'flex',
-            // alignItems: 'center',
             gap: '0.5rem',
           }}
         >
