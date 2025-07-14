@@ -92,7 +92,7 @@ const LLMChatComponent = () => {
               fontSize: '0.875rem',
               borderRadius: '0.375rem',
               resize: 'none',
-              backgroundColor: 'black',
+              backgroundColor: '#3f3f3f',
               color: 'white',
               height: '85px',
               border: 'none',
