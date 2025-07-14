@@ -34,7 +34,7 @@ const LLMChatComponent = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-900 text-white rounded-lg shadow-md max-w-md ml-auto">
+    <div className="p-6 bg-gray-900 text-white rounded-lg max-w-md ml-auto">
       <div
         ref={historyRef}
         style={{
@@ -44,8 +44,7 @@ const LLMChatComponent = () => {
           backgroundColor: 'black',
           color: 'white',
           padding: '1rem',
-          borderRadius: '0.5rem',
-          boxShadow: '0 0 5px rgba(0,0,0,0.3)',
+          borderRadius: '0.5rem'
         }}
       >
         <h2 className="text-sm mb-2">Chat History</h2>
