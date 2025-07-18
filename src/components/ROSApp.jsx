@@ -5,7 +5,7 @@ import Visualizer from './Visualizer';
 
 const ROSApp = () => {
   return (
-    <Container fluid className="bg-white min-vh-100 py-4">
+    <Container className="min-vh-100 py-4">
       <Row>
         <Col xs={12} xl={7}>
           <Visualizer />

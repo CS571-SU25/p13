@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { LLMChat } from '../lib/LLMChat';
+import ChatHistory from './ChatHistory';
+import ChatInput from './ChatInput';
 import ROSLIB from 'roslib';
 import '../App.css';
 
@@ -35,34 +37,8 @@ const LLMChatComponent = () => {
 
   return (
     <div className="p-6 bg-gray-900 text-white rounded-lg max-w-md ml-auto">
-      <div
-        ref={historyRef}
-        style={{
-          height: '400px',
-          width: '400px',
-          overflowY: 'scroll',
-          backgroundColor: 'black',
-          color: 'white',
-          padding: '1rem',
-          borderRadius: '0.5rem'
-        }}
-      >
-        <h2 className="text-sm mb-2">Chat History</h2>
-        {messages.length === 0 ? (
-            <p className="text-gray-400">No messages yet...</p>
-        ) : (
-            messages.map((msg, i) => (
-            <div
-                key={i}
-                className={`p-2 rounded mb-2 ${
-                msg.role === 'user' ? 'bg-blue-600' : 'bg-gray-700'
-                }`}
-            >
-                <strong>{msg.role.toUpperCase()}:</strong> {msg.text}
-            </div>
-            ))
-        )}
-      </div>
+      <ChatHistory messages={messages} historyRef={historyRef} />
+      <ChatInput inputRef={inputRef} onSubmit={handleClick} />
 
       {/* <button
         id="runOnBotButton"
@@ -72,50 +48,6 @@ const LLMChatComponent = () => {
       >
         Run on robot
       </button> */}
-
-      <div style={{ width: '400px', display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
-        <div
-          style={{
-            width: '400px',
-            display: 'flex',
-            gap: '0.5rem',
-          }}
-        >
-          <textarea
-            id="userInput"
-            ref={inputRef}
-            defaultValue="Pick the apple and place it on the bread."
-            style={{
-              flexGrow: 1,
-              padding: '0.5rem',
-              fontSize: '0.875rem',
-              borderRadius: '0.375rem',
-              resize: 'none',
-              backgroundColor: '#3f3f3f',
-              color: 'white',
-              height: '85px',
-              border: 'none',
-            }}
-          />
-          <button
-            onClick={handleClick}
-            style={{
-              padding: '0.5rem 1rem',
-              fontSize: '0.875rem',
-              fontWeight: '600',
-              borderRadius: '0.375rem',
-              backgroundColor: 'black',
-              color: 'white',
-              height: '40px',
-              border: 'none',
-              cursor: 'pointer',
-            }}
-            type="button"
-          >
-            Enter
-          </button>
-        </div>
-      </div>
     </div>
   );
 };

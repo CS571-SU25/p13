@@ -4,16 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { HashRouter, Routes, Route } from 'react-router'
 
-import AboutUs from './components/AboutUs'
-import OtherInfo from './components/OtherInfo'
+import Navbar from './components/Navbar';
 import ROSApp from './components/ROSApp';
+import Instructions from './components/Instructions'
 
 function App() {
   return <HashRouter>
+    <Navbar />
     <Routes>
       <Route path="/" element={<ROSApp/>}></Route>
-      <Route path="/about-us" element={<AboutUs/>}></Route>
-      <Route path="/other-info" element={<OtherInfo/>}></Route>
+      <Route path="/instructions" element={<Instructions/>}></Route>
     </Routes>
   </HashRouter>
 }
