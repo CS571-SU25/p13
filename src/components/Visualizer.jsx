@@ -22,7 +22,9 @@ const Visualizer = () => {
       console.log('Connection to ROS closed');
     });
 
-    if (!viewerRef.current) return;
+    if (!viewerRef.current) {
+      return;
+    }
 
     const viewer = new ROS3D.Viewer({
       divID: viewerRef.current.id,
@@ -46,7 +48,7 @@ const Visualizer = () => {
     const urdfClient = new ROS3D.UrdfClient({
       ros,
       tfClient,
-      path: 'https://raw.githubusercontent.com/Wisc-HCI/panda-primitives/master/',
+      path: 'https://raw.githubusercontent.com/Wisc-HCI/panda-primitives/master/', // not accessible outside of container
       rootObject: viewer.selectableObjects,
       loader: ROS3D.COLLADA_LOADER_2,
     });
