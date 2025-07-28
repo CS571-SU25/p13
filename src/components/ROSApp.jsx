@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import LLMChatComponent from './LLMChat';
 import Visualizer from './Visualizer';
 import Toggle from './Toggle';
 
 const ROSApp = () => {
-  const [showVisualizer, setShowVisualizer] = useState(true);
-  const [showChat, setShowChat] = useState(true);
 
   return (
     <Container className="min-vh-100 py-4">

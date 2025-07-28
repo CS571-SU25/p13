@@ -15,6 +15,7 @@
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
     "react-router": "^7.6.3",
+    "ros3d": "^1.1.0",
     "roslib": "^1.4.1",
     "tailwind-scrollbar": "^4.0.2"
   },
