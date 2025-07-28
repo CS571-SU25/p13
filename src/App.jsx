@@ -6,7 +6,8 @@ import { HashRouter, Routes, Route } from 'react-router'
 
 import Navbar from './components/Navbar';
 import ROSApp from './components/ROSApp';
-import Instructions from './components/Instructions'
+import Instructions from './components/Instructions';
+import Settings from './components/Settings';
 
 function App() {
   return <HashRouter>
@@ -14,6 +15,7 @@ function App() {
     <Routes>
       <Route path="/" element={<ROSApp/>}></Route>
       <Route path="/instructions" element={<Instructions/>}></Route>
+      <Route path="/settings" element={<Settings />}></Route>
     </Routes>
   </HashRouter>
 }
