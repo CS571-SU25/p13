@@ -7,6 +7,7 @@ export default function UINavbar() {
         <Container fluid>
             <Nav className="me-auto">
                 <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to="/robot">Robot</Nav.Link>
                 <Nav.Link as={Link} to="/instructions">Instructions</Nav.Link>
                 <Nav.Link as={Link} to="/settings">Settings</Nav.Link>
             </Nav>
