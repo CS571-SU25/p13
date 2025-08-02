@@ -1,134 +1,40 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { LLMChat } from '../lib/LLMChat';
-import ChatHistory from './ChatHistory';
-import ChatInput from './ChatInput';
 import ROSLIB from 'roslib';
-import '../App.css';
+import { LLMChat } from '../lib/LLMChat';
 
-const LLMChatComponent = () => {
-  const inputRef = useRef(null);
-  const recognitionRef = useRef(null);
-  const runButtonRef = useRef(null);
+const LLMChatLogic = ({ children }) => {
   const [messages, setMessages] = useState([]);
-  const [isSpeechMode, setIsSpeechMode] = useState(false);
-
-  // prevent unwanted restart after stopping
-  const shouldRestartRef = useRef(true);
+  const runButtonRef = useRef(null);
 
   useEffect(() => {
-    if (!runButtonRef.current) return;
-
     const ros = new ROSLIB.Ros({ url: 'ws://localhost:9090' });
 
-    ros.on('connection', () => {
-        console.log('Connected to websocket server.');
-    });
+    ros.on('connection', () => console.log('Connected'));
+    ros.on('error', (e) => console.error(e));
+    ros.on('close', () => console.warn('Closed'));
 
-    ros.on('error', (error) => {
-        console.error('Error connecting to websocket server:', error);
-    });
-
-    ros.on('close', () => {
-        console.warn('Connection to websocket server closed.');
-    });
-
-    const chat = new LLMChat(ros, '', '', runButtonRef.current.id);
-
-    chat.llmListenerCallback = (message) => {
-      setMessages((prev) => [...prev, { role: 'agent', text: message.data }]);
+    const chat = new LLMChat(ros, '', '', 'runOnBotButton');
+    chat.llmListenerCallback = (msg) => {
+      setMessages((prev) => [...prev, { role: 'agent', text: msg.data }]);
     };
 
     window.llmChat = chat;
   }, []);
 
-  useEffect(() => {
-    if (!('webkitSpeechRecognition' in window)) {
-      console.warn('Speech recognition not supported');
-      return;
-    }
-
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recog = new SpeechRecognition();
-    recog.continuous = true;
-    recog.interimResults = false;
-    recog.lang = 'en-US';
-
-    recog.onresult = (event) => {
-      const speechResult = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
-
-      if (speechResult.includes("stop speech")) {
-        shouldRestartRef.current = false;
-        setIsSpeechMode(false);
-        recog.stop();
-        console.log("Speech mode stopped by voice command.");
-        return;
-      }
-
-      if (speechResult.includes("enter")) {
-        handleClick();
-        return;
-      }
-
-      const currentText = inputRef.current.value;
-      inputRef.current.value = currentText
-        ? `${currentText} ${speechResult}`
-        : speechResult;
-    };
-
-    recog.onerror = (event) => {
-      console.error("Speech recognition error:", event.error);
-    };
-
-    recog.onend = () => {
-      if (shouldRestartRef.current) {
-        recog.start();
-      } else {
-        console.log("Mic fully stopped.");
-      }
-    };
-
-    recognitionRef.current = recog;
-  }, []);
-
-  const handleClick = () => {
-    const value = inputRef.current.value;
-    if (value.trim()) {
-      inputRef.current.value = "";
-      setMessages((prev) => [...prev, { role: 'user', text: value }]);
-      const str = new ROSLIB.Message({ data: value });
-      window.llmChat.userResponsePub.publish(str);
-    }
-  };
-
-  const toggleInputMode = () => {
-    if (isSpeechMode) {
-      shouldRestartRef.current = false;
-      recognitionRef.current?.stop();
-    } else {
-      shouldRestartRef.current = true;
-      recognitionRef.current?.start();
-    }
-    setIsSpeechMode((prev) => !prev);
+  const handleUserMessage = (text) => {
+    setMessages((prev) => [...prev, { role: 'user', text }]);
+    const rosMsg = new ROSLIB.Message({ data: text });
+    window.llmChat.userResponsePub.publish(rosMsg);
   };
 
   return (
-    <div className="p-6 bg-gray-900 text-white rounded-lg max-w-md ml-auto">
-      <ChatHistory messages={messages} />
-      <ChatInput
-        inputRef={inputRef}
-        onSubmit={handleClick}
-        isSpeechMode={isSpeechMode}
-        toggleInputMode={toggleInputMode}
-      />
-      <button
-        id="runOnBotButton"
-        ref={runButtonRef}
-        style={{ display: 'none' }}
-      >
-        Run on robot
+    <>
+      <button id="runOnBotButton" ref={runButtonRef} style={{ display: 'none' }}>
+        Run
       </button>
-    </div>
+      {children({ messages, handleUserMessage })}
+    </>
   );
 };
 
-export default LLMChatComponent;
+export default LLMChatLogic;
