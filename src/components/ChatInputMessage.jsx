@@ -35,7 +35,7 @@ const ChatInputMessage = ({
     </div>
   ) : (
     <Button
-      variant='dark'
+      variant='primary'
       onClick={onSubmit}
       style={{
         padding: '0.5rem 1rem',
@@ -52,7 +52,7 @@ const ChatInputMessage = ({
     </Button>
   );
 
-  const toggleLabel = isSpeech ? 'Stop Speech' : 'Use Speech';
+  const toggleLabel = isSpeech ? 'Say "Stop Speech"' : 'Use Speech';
   const toggleColor = isSpeech ? '#991b1b' : '#065f46';
 
   return (
