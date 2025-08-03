@@ -4,9 +4,7 @@ const VisualizerOverlay = () => {
   return (
     <div
       style={{
-        position: 'absolute',
-        top: '0rem',
-        left: '10rem',
+        position: 'relative',
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
         color: 'white',
         borderRadius: '0.5rem',

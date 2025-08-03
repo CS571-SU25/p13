@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from "react-bootstrap";
 import MicPulse from './MicPulse';
 
 const micSize = 43.5;
@@ -14,15 +15,14 @@ const ChatInputMessage = ({
   const placeholder = isSpeech ? 'Say something...' : 'Type your message...';
   const submitButton = isSpeech ? (
     <div>
-      <button
+      <Button
+        variant='dark'
         disabled
         style={{
           width: `${micSize * 1.5}px`,
           height: `${micSize * 1.5}px`,
           padding: 0,
           borderRadius: '0.375rem',
-          backgroundColor: '#222',
-          color: '#999',
           border: 'none',
           cursor: 'default',
           display: 'flex',
@@ -31,17 +31,17 @@ const ChatInputMessage = ({
         }}
       >
         <MicPulse size={micSize} />
-      </button>
+      </Button>
     </div>
   ) : (
-    <button
+    <Button
+      variant='dark'
       onClick={onSubmit}
       style={{
         padding: '0.5rem 1rem',
         fontSize: '0.875rem',
         fontWeight: '600',
         borderRadius: '0.375rem',
-        backgroundColor: '#222',
         color: 'white',
         height: '40px',
         border: 'none',
@@ -49,15 +49,15 @@ const ChatInputMessage = ({
       }}
     >
       Enter
-    </button>
+    </Button>
   );
 
   const toggleLabel = isSpeech ? 'Stop Speech' : 'Use Speech';
   const toggleColor = isSpeech ? '#991b1b' : '#065f46';
 
   return (
-    <div style={{ width: '400px', display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
-      <div style={{ width: '400px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <div style={{ width: '500px', display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+      <div style={{ width: '500px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
           <textarea
             ref={inputRef}

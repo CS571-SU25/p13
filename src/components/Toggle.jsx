@@ -30,7 +30,7 @@ const Toggle = ({ title = 'Component', children }) => {
       >
         {visible ? `Hide` : `Show`} {title}
       </Button>
-      {visible && children && <div className="mt-4">{children}</div>}
+      {visible && children && <div className="mt-2">{children}</div>}
     </div>
   );
 };

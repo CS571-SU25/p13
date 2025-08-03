@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+
 import LLMChatComponent from './LLMChat';
 import Visualizer from './Visualizer';
 import Toggle from './Toggle';
@@ -7,15 +9,19 @@ import ChatHistory from './ChatHistory';
 import ChatInput from './ChatInput';
 
 const ROSApp = () => {
+  const navigate = useNavigate();
+
   return (
     <Container fluid className="bg-black text-white min-vh-100 py-4">
-      <Row className="h-100">
-        <Col xs={12} xl={7} className="h-100">
-          <Toggle title="Visualizer" className="h-100">
+      <Row className="align-items-start gx-0">
+        <Col xs={12} lg={6} className="mb-4">
+          <Toggle title="Visualizer">
             <Visualizer />
           </Toggle>
         </Col>
-        <Col xs={12} xl={5} className="h-100 d-flex flex-column gap-3">
+        <Col xs={12} lg={6} 
+          className="d-flex flex-column align-items-center justify-content-start mb-5"
+        >
           <LLMChatComponent>
             {({ messages, handleUserMessage }) => (
               <>
@@ -28,6 +34,13 @@ const ROSApp = () => {
           </LLMChatComponent>
         </Col>
       </Row>
+      <h4>Need Help?</h4>
+      <Button
+        variant="outline-secondary"
+        onClick={() => navigate("/instructions")}
+      >
+        User Guide
+      </Button>
     </Container>
   );
 };

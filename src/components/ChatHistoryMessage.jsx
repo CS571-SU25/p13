@@ -6,9 +6,9 @@ const ChatHistoryMessage = ({ messages, historyRef }) => {
       ref={historyRef}
       style={{
         height: '400px',
-        width: '400px',
+        width: '500px',
         overflowY: 'scroll',
-        backgroundColor: 'black',
+        backgroundColor: '#222222',
         color: 'white',
         padding: '1rem',
         borderRadius: '0.5rem'

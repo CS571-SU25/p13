@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ROSLIB from 'roslib';
 import * as ROS3D from 'ros3d';
 
@@ -7,6 +7,21 @@ import VisualizerOverlay from './VisualizerOverlay';
 
 const Visualizer = () => {
   const viewerRef = useRef(null);
+  const containerRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 500, height: 500 });
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      setDimensions({ width, height });
+    });
+
+    observer.observe(containerRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const ros = new ROSLIB.Ros({
@@ -31,8 +46,8 @@ const Visualizer = () => {
 
     const viewer = new ROS3D.Viewer({
       divID: viewerRef.current.id,
-      width: 500,
-      height: 500,
+      width: dimensions.width,
+      height: dimensions.height,
       antialias: true,
       fixedFrame: 'scene',
     });
@@ -83,15 +98,14 @@ const Visualizer = () => {
   }, []);
 
   return (
-    <div style={{
-      border: '1px solid #444',
-      borderRadius: '0.5rem',
-      padding: '1rem',
-      width: '100%',
-      height: '100%',
-      backgroundColor: '#111',
-      position: 'relative' // overlay positioning
-    }}>
+    <div 
+      ref={containerRef} 
+      style={{
+        width: '100%',
+        height: '100%',
+        position: 'relative' // overlay positioning
+      }}
+    >
       <Toggle title="Overlay">
         <VisualizerOverlay />
       </Toggle>
