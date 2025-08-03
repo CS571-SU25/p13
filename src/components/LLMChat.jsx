@@ -2,9 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import ROSLIB from 'roslib';
 import { LLMChat } from '../lib/LLMChat';
 
-const LLMChatLogic = ({ children }) => {
-  const [messages, setMessages] = useState([]);
+const LLMChatComponent = ({ children }) => {
+  const [messages, setMessages] = useState(() => {
+    const saved = sessionStorage.getItem('chatMessages');
+    return saved ? JSON.parse(saved) : [];
+  });
+
   const runButtonRef = useRef(null);
+
+  useEffect(() => {
+    sessionStorage.setItem('chatMessages', JSON.stringify(messages));
+  }, [messages]);
 
   useEffect(() => {
     const ros = new ROSLIB.Ros({ url: 'ws://localhost:9090' });
@@ -37,4 +45,4 @@ const LLMChatLogic = ({ children }) => {
   );
 };
 
-export default LLMChatLogic;
+export default LLMChatComponent;
