@@ -1,28 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 const Toggle = ({ title = 'Component', children }) => {
+  const storageKey = `toggle-${title}`;
   const [visible, setVisible] = useState(true);
 
+  useEffect(() => {
+    const savedState = sessionStorage.getItem(storageKey);
+    if (savedState !== null) {
+      setVisible(savedState === "true");
+    }
+  }, [storageKey]);
+
+  const toggleVisibility = () => {
+    const newState = !visible;
+    setVisible(newState);
+    sessionStorage.setItem(storageKey, newState.toString());
+  };
+
   return (
-    <div className="position-relative mb-4 p-4">
-      {/* Toggle button in top-left corner */}
+    <div>
       <Button
         variant="dark"
         size="md"
         style={{
-          position: 'absolute',
-          top: '0.5rem',
-          left: '0.5rem',
           zIndex: 10,
         }}
-        onClick={() => setVisible(v => !v)}
+        onClick={toggleVisibility}
       >
         {visible ? `Hide` : `Show`} {title}
       </Button>
-
-      {/* Wrapped component */}
-      {visible && <div className="mt-4">{children}</div>}
+      {visible && children && <div className="mt-4">{children}</div>}
     </div>
   );
 };
