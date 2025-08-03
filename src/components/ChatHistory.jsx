@@ -1,4 +1,3 @@
-// components/ChatHistory.jsx
 import React from 'react';
 import ChatHistoryMessage from './ChatHistoryMessage';
 
