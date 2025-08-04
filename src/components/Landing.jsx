@@ -74,7 +74,7 @@ export default function Landing() {
                 <Card.Body>
                   <Card.Title>Smart Task Planning</Card.Title>
                   <Card.Text>
-                    The model accurately breaks down complex tasks into safe, achievable steps so you don't need to worry about every detail.
+                    The model accurately breaks down complex tasks into achievable steps, so you don't need to worry about every detail.
                   </Card.Text>
                 </Card.Body>
               </Card>
