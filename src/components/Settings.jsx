@@ -25,7 +25,7 @@ export default function Settings() {
             <h4>Visibility Toggles</h4>
             <div className="d-flex flex-column gap-2">
                 <Toggle title="Visualizer" />
-                <Toggle title="Overlay" />
+                <Toggle title="Tips" />
                 <Toggle title="Chat History" />
             </div>
             </div>

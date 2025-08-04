@@ -106,7 +106,7 @@ const Visualizer = () => {
         position: 'relative' // overlay positioning
       }}
     >
-      <Toggle title="Overlay">
+      <Toggle title="Tips">
         <VisualizerOverlay />
       </Toggle>
       <div
