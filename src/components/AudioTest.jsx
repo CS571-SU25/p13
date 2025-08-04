@@ -71,26 +71,24 @@ const AudioTest = () => {
                 Start Test
             </button>
         ) : (
-            <button
-            onClick={stopTest}
-            style={{
-                padding: '0.5rem 1rem',
-                backgroundColor: '#991b1b',
-                color: 'white',
-                border: 'none',
-                borderRadius: '0.375rem',
-                cursor: 'pointer',
-            }}
-            >
-                Stop Test
-            </button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <button
+                  onClick={stopTest}
+                  style={{
+                      padding: '0.5rem 1rem',
+                      backgroundColor: '#991b1b',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '0.375rem',
+                      cursor: 'pointer',
+                  }}
+              >
+                  Stop Test
+              </button>
+              <MicPulse size={micSize} />
+          </div>
         )}
-        {isTesting && (
-            <div>
-                <MicPulse size={micSize} />
-            </div>
-        )}
-        </div>
+      </div>
       <textarea
         value={transcript}
         placeholder="Speak into your mic..."
