@@ -7,7 +7,7 @@ import { HashRouter, Routes, Route } from 'react-router'
 import Navbar from './components/Navbar';
 import Landing from './components/Landing';
 import ROSApp from './components/ROSApp';
-import Instructions from './components/Instructions';
+import UserGuide from './components/UserGuide';
 import Settings from './components/Settings';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Landing/>}></Route>
       <Route path="/robot" element={<ROSApp/>}></Route>
-      <Route path="/instructions" element={<Instructions/>}></Route>
+      <Route path="/user-guide" element={<UserGuide/>}></Route>
       <Route path="/settings" element={<Settings />}></Route>
     </Routes>
   </HashRouter>

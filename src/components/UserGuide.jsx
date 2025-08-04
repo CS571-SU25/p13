@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-export default function Instructions() {
+export default function UserGuide() {
   return (
     <Container fluid className="bg-black text-white min-vh-100 pt-4 px-3">
       <div
@@ -12,7 +12,7 @@ export default function Instructions() {
           textAlign: "left",
         }}
       >
-        <h1>Instructions</h1>
+        <h1>User Guide</h1>
 
         <ol style={{ listStylePosition: "inside", lineHeight: "2rem", padding: 0 }}>
           <li>Decide on a task for the robot</li>

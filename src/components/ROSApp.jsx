@@ -37,7 +37,7 @@ const ROSApp = () => {
       <h4>Need Help?</h4>
       <Button
         variant="outline-secondary"
-        onClick={() => navigate("/instructions")}
+        onClick={() => navigate("/user-guide")}
       >
         User Guide
       </Button>
