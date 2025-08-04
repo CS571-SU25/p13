@@ -14,30 +14,28 @@ export default function Landing() {
       <section className="my-5">
         <Container>
             <Row className="align-items-center">
-                <Col md={6}>
+                <Col lg={6}>
                     <h1 className="display-4 fw-bold">Assistive Robotic Arm</h1>
                     <p className="lead text-light mb-4">Bringing independence around the house.</p>
                     <p className="text-light">
-                    TODO: write project description!<br/>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-                    Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-                    Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-                    Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-                    Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                      The Assistive Robotic Arm is designed to support users with limited mobility to independently complete everyday tasks hands-free.
+                      Whether it's simply moving an object or helping with daily routines, the robot arm responds to natural commands like "pick up the cup," "place the plate on the table," or "twist open the jar."
+                      Using advanced language understanding and task planning, the system interprets the given command, breaks it down into a sequence of executable steps, and carries out the task.
+                      The process is fully visualized in real time, giving users clear feedback on how the robot understands and responds to their requests. 
+                      This allows for trust, transparency, and easy corrections if needed.
+                      Designed with accessibility and autonomy in mind, the Assistive Robotic Arm opens new possibilities for hands-free assistance in home and care settings. 
                     </p>
                     <Button 
                         size="lg" 
-                        style={{ backgroundColor: "#008080", borderColor: "#FFFFFF" }}
+                        className="mb-3 mb-lg-0"
+                        style={{ backgroundColor: "#008080", borderColor: "#008080" }}
                         onClick={handleTryItNow}
                     >
                         Try It Now
                     </Button>
                 </Col>
 
-                <Col md={6} className="text-center">
+                <Col lg={6} className="text-center">
                     <video
                         controls
                         className="rounded shadow"
@@ -55,37 +53,39 @@ export default function Landing() {
         <h2 className="text-center mb-4">What it can do</h2>
         <Container>
           <Row className="g-4">
-            <Col md={4}>
+            <Col lg={4}>
               <Card bg="dark" text="white" className="h-100">
-                <Card.Img src="/p13/task-planning-user.jpg" className="mb-3" />
-                <Card.Img src="/p13/task-planning-agent.jpg" />
+                <Card.Img src="/p13/text-input.png" className="mb-3" />
+                <Card.Img src="/p13/speech-input.png" />
                 <Card.Body>
-                  <Card.Title>Smart Task Planning</Card.Title>
+                  <Card.Title>Accessible Communication</Card.Title>
                   <Card.Text>
-                    The model accurately breaks down complex tasks into safe, achievable steps.
-                    <br/>TODO: list out primitives!
+                    Easily switch between typing and speech communication modes.
                   </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
+            <Col lg={4}>
+              <Card bg="dark" text="white" className="h-100">
+                <Card.Img src="/p13/task-planning-user.jpg" className="mb-3" />
+                <Card.Img src="/p13/task-planning-agent.jpg" className="mb-3" />
+                <Card.Img src="/p13/task-planning-user-2.png" className="mb-3" />
+                <Card.Img src="/p13/task-planning-agent-2.png" />
+                <Card.Body>
+                  <Card.Title>Smart Task Planning</Card.Title>
+                  <Card.Text>
+                    The model accurately breaks down complex tasks into safe, achievable steps so you don't need to worry about every detail.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col lg={4}>
               <Card bg="dark" text="white" className="h-100">
                 <Card.Img variant="top" src="/p13/visualization.jpg" />
                 <Card.Body>
                   <Card.Title>Live Visualization</Card.Title>
                   <Card.Text>
                     Watch the robot visualized on screen before real-world manipulation.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={4}>
-              <Card bg="dark" text="white" className="h-100">
-                <Card.Img variant="top" src="https://via.placeholder.com/150" />
-                <Card.Body>
-                  <Card.Title>Accessible Communication</Card.Title>
-                  <Card.Text>
-                    Easily switch between typing and speech communication modes.
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -101,7 +101,7 @@ export default function Landing() {
         </p>
         <Button 
             size="lg" 
-            style={{ backgroundColor: "#008080", borderColor: "#FFFFFF" }}
+            style={{ backgroundColor: "#008080", borderColor: "#008080" }}
             onClick={handleTryItNow}
         >
           Try It Now
