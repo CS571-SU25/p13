@@ -34,7 +34,7 @@ const ROSApp = () => {
           </LLMChatComponent>
         </Col>
       </Row>
-      <h4>Need Help?</h4>
+      <h4>Need help?</h4>
       <Button
         variant="outline-secondary"
         onClick={() => navigate("/user-guide")}
