@@ -62,6 +62,13 @@ const ChatInputMessage = ({
           <textarea
             ref={inputRef}
             placeholder={placeholder}
+            aria-label="Type your message"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                onSubmit();
+              }
+            }}
             style={{
               flexGrow: 1,
               padding: '0.5rem',

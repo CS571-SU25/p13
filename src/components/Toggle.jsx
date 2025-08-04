@@ -25,6 +25,7 @@ const Toggle = ({ title = 'Component', children }) => {
         size="md"
         style={{
           zIndex: 10,
+          borderColor: "gray"
         }}
         onClick={toggleVisibility}
       >

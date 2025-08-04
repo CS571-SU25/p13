@@ -92,6 +92,7 @@ const AudioTest = () => {
       <textarea
         value={transcript}
         placeholder="Speak into your mic..."
+        aria-label="Speak into your mic"
         readOnly
         style={{
           width: '100%',
@@ -101,6 +102,8 @@ const AudioTest = () => {
           color: 'white',
           border: 'none',
           borderRadius: '0.375rem',
+          cursor: 'default',
+          pointerEvents: 'none'
         }}
       />
     </div>

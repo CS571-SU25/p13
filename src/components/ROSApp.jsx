@@ -13,8 +13,10 @@ const ROSApp = () => {
 
   return (
     <Container fluid className="bg-black text-white min-vh-100 py-4">
+      <h1>Robot Interface</h1>
       <Row className="align-items-start gx-0">
         <Col xs={12} lg={6} className="mb-4">
+          <h2>Visualizer</h2>
           <Toggle title="Visualizer">
             <Visualizer />
           </Toggle>
@@ -22,6 +24,7 @@ const ROSApp = () => {
         <Col xs={12} lg={6} 
           className="d-flex flex-column align-items-center justify-content-start mb-5"
         >
+          <h2>Chat</h2>
           <LLMChatComponent>
             {({ messages, handleUserMessage }) => (
               <>
@@ -34,7 +37,7 @@ const ROSApp = () => {
           </LLMChatComponent>
         </Col>
       </Row>
-      <h4>Need help?</h4>
+      <h3>Need help?</h3>
       <Button
         variant="outline-secondary"
         onClick={() => navigate("/user-guide")}

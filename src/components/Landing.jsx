@@ -55,8 +55,8 @@ export default function Landing() {
           <Row className="g-4">
             <Col lg={4}>
               <Card bg="dark" text="white" className="h-100">
-                <Card.Img src="/p13/text-input.png" className="mb-3" />
-                <Card.Img src="/p13/speech-input.png" />
+                <Card.Img src="/p13/text-input.png" className="mb-3" alt="Text input example" />
+                <Card.Img src="/p13/speech-input.png" alt="Speech input example" />
                 <Card.Body>
                   <Card.Title>Accessible Communication</Card.Title>
                   <Card.Text>
@@ -67,10 +67,10 @@ export default function Landing() {
             </Col>
             <Col lg={4}>
               <Card bg="dark" text="white" className="h-100">
-                <Card.Img src="/p13/task-planning-user.jpg" className="mb-3" />
-                <Card.Img src="/p13/task-planning-agent.jpg" className="mb-3" />
-                <Card.Img src="/p13/task-planning-user-2.png" className="mb-3" />
-                <Card.Img src="/p13/task-planning-agent-2.png" />
+                <Card.Img src="/p13/task-planning-user.jpg" className="mb-3" alt="First user command" />
+                <Card.Img src="/p13/task-planning-agent.jpg" className="mb-3" alt="First task planning from agent" />
+                <Card.Img src="/p13/task-planning-user-2.png" className="mb-3" alt="Second user commadnd" />
+                <Card.Img src="/p13/task-planning-agent-2.png" alt="Second task planning from agent" />
                 <Card.Body>
                   <Card.Title>Smart Task Planning</Card.Title>
                   <Card.Text>
@@ -81,7 +81,7 @@ export default function Landing() {
             </Col>
             <Col lg={4}>
               <Card bg="dark" text="white" className="h-100">
-                <Card.Img variant="top" src="/p13/visualization.jpg" />
+                <Card.Img variant="top" src="/p13/visualization.jpg" alt="Live visualization of robot arm and objects in environment" />
                 <Card.Body>
                   <Card.Title>Live Visualization</Card.Title>
                   <Card.Text>

@@ -22,7 +22,7 @@ export default function Settings() {
             <p>Customize your preferences and test your hardware.</p>
 
             <div className="mt-4">
-            <h4>Visibility Toggles</h4>
+            <h2>Visibility Toggles</h2>
             <div className="d-flex flex-column gap-2">
                 <Toggle title="Visualizer" />
                 <Toggle title="Tips" />
@@ -31,12 +31,12 @@ export default function Settings() {
             </div>
 
             <div className="mt-4">
-            <h4>Audio Testing</h4>
+            <h2>Audio Testing</h2>
             <AudioTest />
             </div>
 
             <div className="mt-4">
-            <h4>Need help?</h4>
+            <h2>Need help?</h2>
             <Button
                 variant="outline-secondary"
                 onClick={() => navigate("/user-guide")}

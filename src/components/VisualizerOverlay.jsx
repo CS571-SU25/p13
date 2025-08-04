@@ -16,7 +16,7 @@ const VisualizerOverlay = () => {
     >
       <div>Click + drag to rotate</div>
       <div>Scroll to zoom</div>
-      <div>Right-click to pan</div>
+      {/* <div>Right-click to pan</div> */}
     </div>
   );
 };
