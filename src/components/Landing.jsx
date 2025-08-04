@@ -54,11 +54,25 @@ export default function Landing() {
         <Container>
           <Row className="g-4">
             <Col lg={4}>
-              <Card bg="dark" text="white" className="h-100">
-                <Card.Img src="/p13/text-input.png" className="mb-3" alt="Text input example" />
-                <Card.Img src="/p13/speech-input.png" alt="Speech input example" />
-                <Card.Body>
-                  <Card.Title>Accessible Communication</Card.Title>
+              <Card
+                bg="dark"
+                text="white"
+                className="text-center"
+                style={{
+                  height: '100%',
+                  display: 'grid',
+                  gridTemplateRows: '1fr auto',
+                  padding: '1rem'
+                }}
+              >
+                <div className="d-flex justify-content-center align-items-center">
+                  <div>
+                    <Card.Img src="/p13/text-input.png" className="img-fluid mb-2" alt="Text input example" />
+                    <Card.Img src="/p13/speech-input.png" className="img-fluid" alt="Speech input example" />
+                  </div>
+                </div>
+                <Card.Body style={{ paddingBottom: 0 }}>
+                  <Card.Title className="fw-bold">Accessible Communication</Card.Title>
                   <Card.Text>
                     Easily switch between typing and speech communication modes.
                   </Card.Text>
@@ -66,13 +80,25 @@ export default function Landing() {
               </Card>
             </Col>
             <Col lg={4}>
-              <Card bg="dark" text="white" className="h-100">
-                <Card.Img src="/p13/task-planning-user.jpg" className="mb-3" alt="First user command" />
-                <Card.Img src="/p13/task-planning-agent.jpg" className="mb-3" alt="First task planning from agent" />
-                <Card.Img src="/p13/task-planning-user-2.png" className="mb-3" alt="Second user commadnd" />
-                <Card.Img src="/p13/task-planning-agent-2.png" alt="Second task planning from agent" />
-                <Card.Body>
-                  <Card.Title>Smart Task Planning</Card.Title>
+              <Card
+                bg="dark"
+                text="white"
+                className="text-center"
+                style={{
+                  height: '100%',
+                  display: 'grid',
+                  gridTemplateRows: '1fr auto',
+                  padding: '1rem'
+                }}
+              >
+                <div className="d-flex justify-content-center align-items-center flex-column">
+                  <Card.Img src="/p13/task-planning-user.jpg" className="mb-2 img-fluid" alt="First user command" />
+                  <Card.Img src="/p13/task-planning-agent.jpg" className="mb-2 img-fluid" alt="First task planning from agent" />
+                  <Card.Img src="/p13/task-planning-user-2.png" className="mb-2 img-fluid" alt="Second user command" />
+                  <Card.Img src="/p13/task-planning-agent-2.png" className="img-fluid" alt="Second task planning from agent" />
+                </div>
+                <Card.Body style={{ paddingBottom: 0 }}>
+                  <Card.Title className="fw-bold">Smart Task Planning</Card.Title>
                   <Card.Text>
                     The model accurately breaks down complex tasks into achievable steps, so you don't need to worry about every detail.
                   </Card.Text>
@@ -80,10 +106,22 @@ export default function Landing() {
               </Card>
             </Col>
             <Col lg={4}>
-              <Card bg="dark" text="white" className="h-100">
-                <Card.Img variant="top" src="/p13/visualization.jpg" alt="Live visualization of robot arm and objects in environment" />
-                <Card.Body>
-                  <Card.Title>Live Visualization</Card.Title>
+              <Card
+                bg="dark"
+                text="white"
+                className="text-center"
+                style={{
+                  height: '100%',
+                  display: 'grid',
+                  gridTemplateRows: '1fr auto',
+                  padding: '1rem'
+                }}
+              >
+                <div className="d-flex justify-content-center align-items-center">
+                  <Card.Img src="/p13/visualization.jpg" className="img-fluid" alt="Live visualization of robot arm and objects in environment" />
+                </div>
+                <Card.Body style={{ paddingBottom: 0 }}>
+                  <Card.Title className="fw-bold">Live Visualization</Card.Title>
                   <Card.Text>
                     Watch the robot visualized on screen before real-world manipulation.
                   </Card.Text>
