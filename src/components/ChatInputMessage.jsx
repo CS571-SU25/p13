@@ -12,7 +12,7 @@ const ChatInputMessage = ({
 }) => {
   const isSpeech = mode === 'speech';
 
-  const placeholder = isSpeech ? 'Say something...' : 'Type your message...';
+  const placeholder = isSpeech ? 'Say something...followed by "Enter"' : 'Type your message...';
   const submitButton = isSpeech ? (
     <div>
       <Button
