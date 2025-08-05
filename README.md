@@ -1,3 +1,3 @@
-# (IMPORTANT) Web Project: Draft Website
+# Web Project: Final Website
 
-I've been working out of the `integration` branch. The code currently in the `main` branch is from the video tutorial. I don't want to merge just yet, so if it's possible and/or not too inconvenient, could the `integration` branch be the version that is downloaded and graded?
+**Note**: Everything is in the main branch. However, I had to remove a submodule because of build issues. It's meant to work with some specific hardware the submodule is for, but I just removed it after unsuccessfully deploying it (which might not be possible). Also, when I go to https://cs571-su25.github.io/p13/, I get a security warning from Chrome. I think it's because I ask the user for permission to use their machine's microphone.
