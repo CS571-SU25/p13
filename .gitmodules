@@ -1,0 +1,3 @@
+[submodule "dexterity-interface"]
+    path = dexterity-interface
+    url = https://github.com/rusmilov/dexterity-interface.git
