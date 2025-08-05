@@ -6,7 +6,7 @@ export default function UserGuide() {
     <Container fluid className="bg-black text-white min-vh-100 pt-4 px-3">
       <div
         style={{
-          maxWidth: "900px",
+          maxWidth: "700px",
           margin: "0 auto",
           padding: "2rem 1rem",
           textAlign: "left",
