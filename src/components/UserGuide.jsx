@@ -135,7 +135,7 @@ export default function UserGuide() {
                 alt={`Step ${idx + 1} of task simulation`}
                 style={{
                   width: "100%",
-                  maxWidth: "160px",
+                  maxWidth: "120px",
                   height: "auto",
                   borderRadius: "10px",
                   border: "1px solid white",
